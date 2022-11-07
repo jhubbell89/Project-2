@@ -14,11 +14,13 @@
     <ul>
         <li><a href="/">Home</a></li>
         <% if (user) { %>
-            <li><a href="/private">Private Page</a></li>
+            <li><a href="">Private Page</a></li>
+            
             <li><a href="/logout">Log Out</a></li>
             <% } else { %>
                 <li><a href="/auth/google">Log In</a></li>
                 <% } %>
+            
     </ul>
 </body>
 
