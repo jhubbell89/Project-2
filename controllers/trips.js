@@ -1,10 +1,11 @@
 const Trip = require('../models/trip');
+// const Destinations = require('./destinations');
 
 module.exports = {
     new: newTrip,
     create,
     index,
-    show
+    // show
 };
 
 function index(req, res) {
@@ -13,14 +14,14 @@ function index(req, res) {
             console.log(err);
             res.redirect('/')
         }
-        res.render('trips/index', {trips})
+        res.render('index', {trips})
     })
 }
   
 function create(req, res) {
     
-    const flight = new Trip(req.body);
-    flight.save(function(err) {
+    const trip = new Trip(req.body);
+    trip.save(function(err) {
       if (err) return res.redirect('/trips/new');
       res.redirect('index');
     });
@@ -30,10 +31,12 @@ function newTrip(req, res) {
     res.render('trips/new');
 }
 
-function show(req, res) {
-    Trip.findById(req.params.id, function(err, flight) {
-        Ticket.find({flight: flight._id}, function(err, tickets) {
-        res.render('trips/show', { title: 'Trip Detail', trip, destinations});
-    });
-  });
-};
+// function show(req, res) {
+//     Trip.findById(req.params.id, function(err, trip) {
+//         // Destinations.find({trip: trip._id}, function(err, destinations) 
+//         {
+//         res.render('trips/show', { title: 'Trip Detail', trip});
+//     }
+//     // );
+//   });
+// };

@@ -6,10 +6,7 @@ var logger = require("morgan");
 var session = require("express-session");
 var passport = require("passport");
 var methodOverride = require("method-override");
-var destinationsRouter = require('./routes/destinations')
-var gearsRouter = require('./routes/gears')
-var notesRouter = require('/routes/notes')
-var tripsRouter = require('/routes/trips')
+
 
 require("dotenv").config();
 require("./config/database");
@@ -17,6 +14,10 @@ require("./config/passport");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var destinationsRouter = require('./routes/destinations')
+var gearsRouter = require('./routes/gears')
+var notesRouter = require('./routes/notes')
+var tripsRouter = require('./routes/trips')
 
 var app = express();
 
@@ -32,7 +33,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use('/', destinationsRouter);
 app.use('/', gearsRouter);
 app.use('/', notesRouter);
-app.use('/trips', tripsRouter)
+app.use('/', tripsRouter)
 
 
 // Method-Override

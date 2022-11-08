@@ -1,4 +1,4 @@
-const Note = require('../models/trip');
+const Trip = require('../models/trip');
 
 module.exports = {
     create
@@ -6,7 +6,7 @@ module.exports = {
 
 function create(req, res) {
     Trip.findById(req.params.id, function(err, trip) {
-      trip.gears.push(req.body);
+      trip.notes.push(req.body);
       trip.save(function(err) {
         res.redirect(`/trips/${trip._id}`);
       });
