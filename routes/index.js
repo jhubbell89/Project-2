@@ -7,11 +7,7 @@ const isLoggedIn = require("../config/auth");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Home / Public Page" });
-});
-
-router.get("/private", isLoggedIn, function (req, res) {
-  res.render("private", { title: "Private Page" });
+  res.render("index", { title: "Trips Planner" });
 });
 
 // OAuth Routes

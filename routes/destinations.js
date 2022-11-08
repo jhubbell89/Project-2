@@ -2,6 +2,6 @@ var express = require('express');
 var router = express.Router();
 var destinationsCtrl = require('../controllers/destinations')
 
-router.post('/', destinationsCtrl.create)
+router.post('/trips/:id/destinations', destinationsCtrl.create)
 
 module.exports = router;
