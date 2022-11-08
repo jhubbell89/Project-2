@@ -20,7 +20,7 @@ var notesSchema = new Schema({
 const tripSchema = new Schema({
         person: String,
         leave: Date,
-        days: Number,
+        return: Date,
         gear: [gearSchema],
         notes: [notesSchema],
     }, {

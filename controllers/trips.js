@@ -28,7 +28,7 @@ function create(req, res) {
 }
 
 function newTrip(req, res) {
-    res.render('trips/new');
+    res.render('trips/addTrip');
 }
 
 // function show(req, res) {
