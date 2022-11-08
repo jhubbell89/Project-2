@@ -1,22 +1,15 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>
-    <%= title %>
-  </title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
+<%- include('./partials/header')  %> 
+<title>Trip Planner Home</title>
 
 <body>
   <p>Welcome to <%= title %>
   </p>
   <ul>
     <li><a href="/">Home</a></li>
+    
+    <li><a href="">Start A Trip</a></li>
+    <li><a href="/trips/addDestinations">Destinations</a></li>
     <% if (user) { %>
-      <li><a href="">?</a></li>
-      <li><a href="">Start A Trip</a></li>
-      <li><a href="">Destinations</a></li>
       <li><a href="/logout">Log Out</a></li>
       <% } else { %>
         <li><a href="/auth/google">Log In</a></li>
