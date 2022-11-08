@@ -1,4 +1,5 @@
 const Destination = require('../models/destination');
+const Trip = require('../models/trip')
 
 module.exports = {
     create, 

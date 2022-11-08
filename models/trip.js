@@ -1,38 +1,32 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-var gearSchema = new Schema(
-    {
+var gearSchema = new Schema({
         item: String,
         qty: Number,
         condition: String,
-
     }, {
         timestamps: true
     }
 )
 
-var notesSchema = new Schema(
-    {
-        note: [string],
-
+var notesSchema = new Schema({
+        note: [String],
     },{
         timestamps: true
     }
 )
 
-const tripSchema = new Schema(
-    {
+const tripSchema = new Schema({
         person: String,
         leave: Date,
         days: Number,
         gear: [gearSchema],
         notes: [notesSchema],
-
     }, {
         timestamps: true
     }
 )
 
 
-module.exports = mongoose.model("Trip", userSchema);
+module.exports = mongoose.model("Trip", tripSchema);
