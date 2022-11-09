@@ -18,7 +18,10 @@ var notesSchema = new Schema({
 )
 
 const tripSchema = new Schema({
-        person: String,
+        person: {
+            type: String,
+            enum: ['james']
+        },
         leave: Date,
         return: Date,
         gear: [gearSchema],

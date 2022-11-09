@@ -2,9 +2,15 @@
 <title>Trip Planner Home</title>
 
 <body>
-    <%- include('../partials/navbar')  %>
-    <p>Welcome to my test
+<%- include('../partials/navbar')  %>
+<p>Welcome to my index
   
+<% trips.forEach(function(t) {%> 
+    <% t.person %>
+    <% t.leave %> 
+    <% t.return %> 
+    <a href="/trips/"></a>
+<% }); %> 
 </body>
 
 </html>
