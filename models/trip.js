@@ -11,7 +11,7 @@ var gearSchema = new Schema({
 )
 
 var notesSchema = new Schema({
-        note: [String],
+        note: String,
     },{
         timestamps: true
     }

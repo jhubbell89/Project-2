@@ -4,13 +4,19 @@
 <body>
   
 <%- include('./partials/navbar')  %> 
-  
-  
-  <p>Welcome to home page</p>
-  
-    
-    
-  
+ 
+<% if (user) { %>
+    <br>
+    <p>Welcome to home page</p>
+    <br>
+    <p>Weather API coming soon!!!</p>
+    <br>
+    <p>Many other fun features coming soon!!!</p>
+      
+ 
+<% } else { %>
+    <h3>Please Sign In</h3>
+<% } %>
 </body>
 
 </html>

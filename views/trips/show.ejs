@@ -6,11 +6,31 @@
 <p>Welcome to my show page</p>
 
 <br>
-<form action="/trips/<%= trip._id %>/gears ">
-
+<form action="/trips/<%= trip._id %>/gears" method="POST">
+    <input type="submit" value="Add Gear">
+    <br>
+    <label for="item">Gear your bringing: </label>
+    <input type="text" name="item" placeholder="e.g. shoes" required>
+    <br>
+    <label for="qty">Quantity:</label>
+    <input type="number" name="qty" min="1" required>
+    <br>
+    <label for="condition">Condition:</label>
+    <select name="condition" id="condition" required>
+        <option value="new">New</option>
+        <option value="great">Great</option>
+        <option value="OK">OK</option>
+        <option value="bad">Bad</option>
+        <option value="unusable">Unusable</option>
+    </select>
 </form>
 <br>
-
+<form action="/trips/<%= trip._id %>/notes" method="POST">
+    <input type="submit" value="Add Notes" >
+    <br>
+    <input type="text" name="note" id="note" size="50">
+</form>
+<br>
 <%= trip.name %> 
 <br>
 <%= trip.person %>
@@ -19,7 +39,53 @@
 <br>
 <%= trip.return %>
 <br>
-
+<% if (trip.notes.length) { %>
+    <table>
+      <thead>
+        <tr>
+            <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% trip.notes.forEach(function(a) { %>
+          <tr>
+            <td><%= a.note %></td>
+          </tr>
+          <% }); %>
+          <tr>
+            <td colspan="2"></td>
+          </tr>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h4>No Notes Added Yet</h4>
+  <% } %> 
+<br>
+<% if (trip.gear.length) { %>
+    <table>
+      <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% trip.gear.forEach(function(b) { %>
+          <tr>
+            <td><%= b.item %></td>
+            <td><%= b.qty %></td>
+            <td><%= b.condition %></td>
+          </tr>
+          <% }); %>
+          <tr>
+            <td colspan="2"></td>
+          </tr>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h4>No Gear Added Yet</h4>
+  <% } %> 
 
 </body>
 

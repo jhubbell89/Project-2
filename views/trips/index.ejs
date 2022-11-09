@@ -5,17 +5,17 @@
 <%- include('../partials/navbar')  %>
 <p>Welcome to my index</p>
 
+
+
 <% if (trips.length) { %>
     <% trips.forEach(function(t) {%> 
         <%= t.name %> 
         <br>
         <%= t.person %>
         <br>
-        <%= t.leave %> 
-        <br>
-        <%= t.return %> 
-        <br>
+        
         <a href="/trips/<%= t._id %> ">Details</a>
+        <br>
         <br>
     <% }); %> 
  
