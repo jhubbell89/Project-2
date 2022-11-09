@@ -46,3 +46,8 @@ a {
 .topnav .icon {
   display: none;
 }
+
+.topnav a.split {
+  float: right;
+  background-color: maroon;
+}

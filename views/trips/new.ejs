@@ -7,8 +7,11 @@
     <br>
     <br>
     <form action="/trips/" method="post">
-      <label for="persons">People Going:</label>
-      <input type="text" name="persons">
+      <label for="name">Trip Name:</label>
+      <input type="text" name="name" >
+      <br>
+      <label for="person">People Going:</label>
+      <input type="text" name="person" required>
       <br>
       <label for="leave">Leave Date</label>
       <input type="date" name="leave">
@@ -16,7 +19,7 @@
       <label for="return">Return Date:</label>
       <input type="date" name="return">
       <br>
-      <input type="submit" value="Start A New Trip">
+      <input type="submit" value="Start Planning">
     </form>
     
       

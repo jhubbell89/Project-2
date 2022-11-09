@@ -3,14 +3,21 @@
 
 <body>
 <%- include('../partials/navbar')  %>
-<p>Welcome to my index
-  
-<% trips.forEach(function(t) {%> 
-    <% t.person %>
-    <% t.leave %> 
-    <% t.return %> 
-    <a href="/trips/"></a>
-<% }); %> 
+<p>Welcome to my index</p>
+
+<% if (trips.length) { %>
+    <% trips.forEach(function(t) {%> 
+        <%= t.name %> 
+        <br>
+        <%= t.person %>
+        <br>
+        <a href="/trips/<%= t._id %> ">Details</a>
+        <br>
+    <% }); %> 
+ 
+<% } else { %>
+    <h2>No adventures await you... <br> yet!</h2>
+<% } %> 
 </body>
 
 </html>
