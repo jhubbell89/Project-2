@@ -3,7 +3,7 @@ const Trip = require('../models/trip');
 
 module.exports = {
     new: newTrip,
-    create,
+    // create,
     index,
     // show
 };
@@ -18,17 +18,18 @@ function index(req, res) {
     })
 }
   
-function create(req, res) {
+// function create(req, res) {
     
-    const trip = new Trip(req.body);
-    trip.save(function(err) {
-      if (err) return res.redirect('/trips/new');
-      res.redirect('index');
-    });
-}
+//     const trip = new Trip(req.body);
+//     trip.save(function(err) {
+//       if (err) return res.redirect('/trips/addTrip');
+//       res.redirect('index');
+//     });
+// }
 
 function newTrip(req, res) {
-    res.render('trips/addTrip');
+    console.log('test')
+    res.render('/trips/addTrip');
 }
 
 // function show(req, res) {

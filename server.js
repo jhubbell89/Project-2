@@ -30,10 +30,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use('/', destinationsRouter);
-app.use('/', gearsRouter);
-app.use('/', notesRouter);
-app.use('/', tripsRouter)
 
 
 // Method-Override
@@ -45,21 +41,26 @@ app.use(
     resave: false,
     saveUninitialized: true,
   })
-);
-// Passport Middleware
-app.use(passport.initialize());
-app.use(passport.session());
+  );
+  // Passport Middleware
+  app.use(passport.initialize());
+  app.use(passport.session());
+  
+  // middleware to send res.locals.user into any view
+  app.use(function (req, res, next) {
+    res.locals.user = req.user;
+    next();
+  });
 
-// middleware to send res.locals.user into any view
-app.use(function (req, res, next) {
-  res.locals.user = req.user;
-  next();
-});
-
-// ROUTES
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
-
+  
+  // ROUTES
+  app.use('/', indexRouter);
+  app.use('/users', usersRouter);
+  app.use('/', destinationsRouter);
+  app.use('/', gearsRouter);
+  app.use('/', notesRouter);
+  app.use('/trips', tripsRouter)
+  
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

@@ -1,0 +1,25 @@
+<%- include('../partials/header')  %> 
+
+<h2>Add a New Trip</h2>
+
+<body>
+  <%- include('../partials/navbar')  %> 
+    <p>Welcome to <%= title %></p>
+    
+    <form action="/trips/" method="post">
+      <label for="persons">People Going:</label>
+      <input type="text" name="persons">
+      <br>
+      <label for="leave">Leave Date</label>
+      <input type="date" name="leave">
+      <br>
+      <label for="return">Return Date:</label>
+      <input type="date" name="return">
+    </form>
+    
+      
+    
+  </body>
+
+
+</html>
