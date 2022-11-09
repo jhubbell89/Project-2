@@ -13,11 +13,11 @@ require("./config/database");
 require("./config/passport");
 
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
-var destinationsRouter = require('./routes/destinations')
-var gearsRouter = require('./routes/gears')
-var notesRouter = require('./routes/notes')
 var tripsRouter = require('./routes/trips')
+// var destinationsRouter = require('./routes/destinations')
+// var gearsRouter = require('./routes/gears')
+// var notesRouter = require('./routes/notes')
+// var usersRouter = require("./routes/users");
 
 var app = express();
 
@@ -55,11 +55,11 @@ app.use(
   
   // ROUTES
   app.use('/', indexRouter);
-  app.use('/users', usersRouter);
-  app.use('/', destinationsRouter);
-  app.use('/', gearsRouter);
-  app.use('/', notesRouter);
   app.use('/trips', tripsRouter)
+  // app.use('/', destinationsRouter);
+  // app.use('/', gearsRouter);
+  // app.use('/', notesRouter);
+  // app.use('/users', usersRouter);
   
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,22 +1,20 @@
 const Trip = require('../models/trip');
-// const Destinations = require('./destinations');
+// const Destinations = require('./models/destination');
 
 module.exports = {
     new: newTrip,
     // create,
-    index,
+    // index,
     // show
 };
 
-function index(req, res) {
-    Trip.find({}, function(err, trips) {
-        if (err) {
-            console.log(err);
-            res.redirect('/')
-        }
-        res.render('index', {trips})
-    })
-}
+// function index(req, res) {
+//     Trip.find({}, function(err, trips) {
+    
+//         res.render('index', {trips})
+       
+//     })
+// }
   
 // function create(req, res) {
     
@@ -28,8 +26,7 @@ function index(req, res) {
 // }
 
 function newTrip(req, res) {
-    console.log('test')
-    res.render('/trips/addTrip');
+    res.render('trips/new');
 }
 
 // function show(req, res) {
