@@ -2,11 +2,25 @@
 <title>Trip Planner Home</title>
 
 <body>
-    <%- include('../partials/navbar')  %>
-    <p>Welcome to my show page</p>
-  
+<%- include('../partials/navbar')  %>
+<p>Welcome to my show page</p>
 
-    
+<br>
+<form action="/trips/<%= trip._id %>/gears ">
+
+</form>
+<br>
+
+<%= trip.name %> 
+<br>
+<%= trip.person %>
+<br>
+<%= trip.leave %>
+<br>
+<%= trip.return %>
+<br>
+
+
 </body>
 
 </html>
