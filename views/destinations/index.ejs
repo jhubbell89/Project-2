@@ -7,14 +7,28 @@
     
 <form action="/destinations/index" method="post">
 <label for="name">Destination:</label>
-<input type="text" name="name" placeholder="e.g. Mt. St. Helens">
+<input type="text" name="name" placeholder="e.g. Mt. SI" required>
+<br>
+<label for="pass">Pass Required</label>
+<select name="pass" id="pass" required>
+  <option value="Northwest Forest Pass">Northwest Forest Pass</option>
+  <option value="National Forest Pass">National Forest Pass</option>
+  <option value="Oregon Pacific Coast Pass">Oregon Pacific Coast Pass</option>
+  <option value="America the Beautiful National Parks Pass">America the Beautiful National Parks Pass</option>
+</select>
+<br>
+<label for="location">Location:</label>
+<input type="text" name="location" placeholder="e.g. NorthBend, WA">
+<br>
+<label for="gps">GPS Coordinates:</label>
+<input type="text" name="gps">
 <br>
 <br>
 <input type="submit" value="Add Destination">
 </form>
 
 <br>
-<% if (trip) { %>
+<% if(destination.length) { %> 
     <table>
       <thead>
         <tr>
@@ -32,15 +46,17 @@
             <td><%= a.location %></td>
             <td><%= a.gps %></td>
           </tr>
-          <% }); %>
+          <% }); %> 
           <tr>
             <td colspan="4"></td>
           </tr>
-      </tbody>
-    </table>
-<% } else { %>
-    <h4>No Destinations Added Yet</h4>
+        </tbody>
+      </table>
+    <% } else { %>
+  <h2>You don't have any Destinations yet.</h2>
 <% } %> 
+    
+
 <br>
 
 </body>

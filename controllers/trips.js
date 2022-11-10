@@ -1,12 +1,12 @@
 const Trip = require('../models/trip');
-// const Destinations = require('./models/destination');
+const Destination = require('../models/destination');
 
 module.exports = {
     new: newTrip,
     create,
     index,
     show,
-    delete: deleteTrip,
+    // delete: deleteTrip,
     // edit,
     // update,
 };
@@ -31,16 +31,17 @@ function newTrip(req, res) {
 }
 
 function show(req, res) {
-    Trip.findById(req.params.id, function(err, trip) {
-        // Destinations.find({trip: trip._id}, function(err, destinations) 
-        {
-        res.render('trips/show', { title: 'Trip Detail', trip});
-    }
-    // );
+    Trip.findById(req.params.id).populate('place').exec(function(err, trip) {
+        Destination.find(
+            {_id: {$nin: trip.place}},
+            function(err,destinations) {
+                res.render('trips/show', { title: 'Trip Detail', trip, destinations });
+            }
+        )
   });
-};
-
-function deleteTrip(req, res) {
-    Trip.deleteTrip(req.params.id)
-    res.redirect('/trips')
 }
+
+// function deleteTrip(req, res) {
+//     Trip.deleteTrip(req.params.id)
+//     res.redirect('/trips')
+// }

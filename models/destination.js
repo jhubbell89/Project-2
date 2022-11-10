@@ -5,11 +5,13 @@ var destinationSchema = new Schema({
         name: String,
         pass: {
             type: String,
-            enum: ['a','b','c','d']
+            enum: ['Northwest Forest Pass',
+            'National Forest Pass',
+            'Oregon Pacific Coast Pass',
+            'America the Beautiful National Parks Pass']
         },
         location: String,
         gps: String,
-        trip: [{type: Schema.Types.ObjectId, ref: 'Trip'}],
     }, {
         timestamps: true
     }

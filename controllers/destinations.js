@@ -1,6 +1,6 @@
 
 const Destination = require('../models/destination');
-const Trip = require('../models/trip')
+// const Trip = require('../models/trip')
 
 module.exports = {
   new: newDestination,  
@@ -13,23 +13,16 @@ module.exports = {
 // }
 
 function newDestination(req, res) {
-  Trip.findById(req.params.id, function (err, trip) {
-    Destination.find(function(err, allDestinations) {
-      res.render('destinations/index', {trip, destination: allDestinations})
+  Destination.find(function(err, destination) {
+    res.render('destinations/index', {destination})
     }
     )
-  }
-  )
 }
+
+
 
 function create(req, res){
   var destination = new Destination(req.body)
-  destination.save(function(err){})
-  // Trip.findById(req.params.id,function(err, trip){
-  //     trip.save(function(err){
-          res.redirect('destinations/index', destination )
-      // }
-      // )
-  // }
-  // )
+  destination.save(function(err){destination})
+          res.redirect('index')
 }

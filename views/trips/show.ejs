@@ -28,7 +28,7 @@
 <form action="/trips/<%= trip._id %>/notes" method="POST">
     <input type="submit" value="Add Notes" >
     <br>
-    <input type="text" name="note" id="note" size="50">
+    <textarea name="notes" id="notes" cols="25" rows="15"></textarea>
 </form>
 <br>
 <%= trip.name %> 
@@ -38,6 +38,7 @@
 <%= trip.leave %>
 <br>
 <%= trip.return %>
+<br>
 <br>
 <% if (trip.notes.length) { %>
     <table>
@@ -60,6 +61,7 @@
   <% } else { %>
     <h4>No Notes Added Yet</h4>
   <% } %> 
+<br>
 <br>
 <% if (trip.gear.length) { %>
     <table>

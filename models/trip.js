@@ -27,7 +27,7 @@ const tripSchema = new Schema({
         return: Date,
         gear: [gearSchema],
         notes: [notesSchema],
-        
+        place: [{type: Schema.Types.ObjectId, ref: 'Destination'}],
     }, {
         timestamps: true
     }
