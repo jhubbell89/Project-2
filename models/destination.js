@@ -9,7 +9,7 @@ var destinationSchema = new Schema({
         },
         location: [String],
         gps: [String],
-        trip: [{type: Schema.Types.ObjectId, ref: 'Trip'}],
+        
     }, {
         timestamps: true
     }

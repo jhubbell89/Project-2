@@ -3,16 +3,46 @@
 <h2>Add a New Trip</h2>
 
 <body>
-  <%- include('../partials/navbar')  %> 
-    <p>Welcome to <%= title %></p>
+<%- include('../partials/navbar')  %> 
+<p>Welcome to destinations</p>
     
-    <form action="/trips/" method="post">
-      
-    </form>
-    
-      
-    
-  </body>
+<form action="/destinations" method="post">
+  <label for="name">Destination:</label>
+<input type="text" name="name" placeholder="e.g. Mt. St. Helens" size="20">
+</form>
+
+<br>
+<% if (trips.locals.length) { %>
+    <table>
+      <thead>
+        <tr>
+            <th>Name:</th>
+            <th>Pass Required:</th>
+            <th>Location:</th>
+            <th>GPS Coordinates:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% trips.locals.forEach(function(a) { %>
+          <tr>
+            <td><%= a.name %></td>
+            <td><%= a.pass %></td>
+            <td><%= a.pass %></td>
+            <td><%= a.pass %></td>
+          </tr>
+          <% }); %>
+          <tr>
+            <td colspan="4"></td>
+          </tr>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h4>No Destinations Added Yet</h4>
+  <% } %> 
+<br>
+
+
+</body>
 
 
 </html>

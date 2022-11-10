@@ -5,7 +5,10 @@ module.exports = {
     new: newTrip,
     create,
     index,
-    show
+    show,
+    delete: deleteTrip,
+    // edit,
+    // update,
 };
 
 function index(req, res) {
@@ -19,7 +22,7 @@ function create(req, res) {
     const trip = new Trip(req.body);
     trip.save(function(err) {
       if (err) return res.redirect('/trips/new');
-      res.redirect('index');
+      res.redirect(`/trips/${movie._id}`);
     });
 }
 
@@ -36,3 +39,8 @@ function show(req, res) {
     // );
   });
 };
+
+function deleteTrip(req, res) {
+    Trip.deleteTrip(req.params.id)
+    res.redirect('/trips')
+}
