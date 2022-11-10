@@ -3,7 +3,7 @@ var router = express.Router();
 var destinationsCtrl = require('../controllers/destinations')
 const isLoggedIn = require("../config/auth");
 
-router.get('/destinations/new', isLoggedIn, destinationsCtrl.new)
-router.post('/destinations', isLoggedIn, destinationsCtrl.create)
+router.get('/destinations/index', isLoggedIn, destinationsCtrl.new)
+router.post('/destinations/index', isLoggedIn, destinationsCtrl.create)
 
 module.exports = router;

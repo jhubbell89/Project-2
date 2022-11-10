@@ -7,8 +7,8 @@ var destinationSchema = new Schema({
             type: String,
             enum: ['a','b','c','d']
         },
-        location: [String],
-        gps: [String],
+        location: String,
+        gps: String,
         trip: [{type: Schema.Types.ObjectId, ref: 'Trip'}],
     }, {
         timestamps: true

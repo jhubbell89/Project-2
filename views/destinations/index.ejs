@@ -5,10 +5,12 @@
 <%- include('../partials/navbar')  %> 
 <p>Welcome to destinations</p>
     
-<form action="/destinations/" method="post">
-  <label for="name">Destination:</label>
-<input type="text" name="name" placeholder="e.g. Mt. St. Helens" size="20">
-
+<form action="/destinations/index" method="post">
+<label for="name">Destination:</label>
+<input type="text" name="name" placeholder="e.g. Mt. St. Helens">
+<br>
+<br>
+<input type="submit" value="Add Destination">
 </form>
 
 <br>

@@ -15,9 +15,11 @@ module.exports = {
 function newDestination(req, res) {
   Trip.findById(req.params.id, function (err, trip) {
     Destination.find(function(err, allDestinations) {
-      res.render('destinations/new', {trip, destination: allDestinations})
-    })
-  })
+      res.render('destinations/index', {trip, destination: allDestinations})
+    }
+    )
+  }
+  )
 }
 
 function create(req, res){
@@ -25,7 +27,7 @@ function create(req, res){
   destination.save(function(err){})
   // Trip.findById(req.params.id,function(err, trip){
   //     trip.save(function(err){
-          res.redirect('/detinations/new', ticket )
+          res.redirect('destinations/index', destination )
       // }
       // )
   // }
