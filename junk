@@ -1,0 +1,7 @@
+
+<%- trip.place.map(c => 
+      `${c.name}`,
+      `${c.pass}`,
+      `${c.location}`,
+      `${c.gps}`
+    ).join('') %>

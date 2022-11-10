@@ -40,6 +40,17 @@
 <%= trip.return %>
 <br>
 <br>
+
+
+<form id="addToPlace" action="/trips/<%= trip._id%>/destination" method="POST">
+  <select name="destinationId">
+    <%- destinations.map(d => `<option value="${d._id}">${d.name}</option>`).join('') %>
+  </select>
+  <button type="submit">Add to Destinations</button>
+</form>
+
+<br>
+<br>
 <% if (trip.notes.length) { %>
     <table>
       <thead>
@@ -54,7 +65,7 @@
           </tr>
           <% }); %>
           <tr>
-            <td colspan="2"></td>
+            <td colspan="1"></td>
           </tr>
       </tbody>
     </table>
