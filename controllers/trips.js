@@ -22,7 +22,7 @@ function create(req, res) {
     const trip = new Trip(req.body);
     trip.save(function(err) {
       if (err) return res.redirect('/trips/new');
-      res.redirect(`/trips/${movie._id}`);
+      res.redirect(`index`);
     });
 }
 
