@@ -17,29 +17,30 @@ function index(req, res) {
        
     })
 }
-  
-function create(req, res) {
-    const trip = new Trip(req.body);
-    trip.save(function(err) {
-      if (err) return res.redirect('/trips/new');
-      res.redirect(`index`);
+
+function show(req, res) {
+    Trip.findById(req.params.id)
+    .populate('place').exec(function(err, trip) {
+        Destination.find({_id: {$nin: trip.place}})
+            .exec(function(err, destinations) {
+                res.render('trips/show', { title: 'Trip Detail', trip, destinations });
+            });
     });
-}
+  }
 
 function newTrip(req, res) {
     res.render('trips/new');
 }
 
-function show(req, res) {
-    Trip.findById(req.params.id).populate('place').exec(function(err, trip) {
-        Destination.find(
-            {_id: {$nin: trip.place}},
-            function(err,destinations) {
-                res.render('trips/show', { title: 'Trip Detail', trip, destinations });
-            }
-        )
-  });
+function create(req, res) {
+    const trip = new Trip(req.body);
+    trip.save(function(err) {
+      if (err) return res.redirect('/trips/new');
+      res.redirect(`/trips/${trip._id}`);
+    });
 }
+
+
 
 // function deleteTrip(req, res) {
 //     Trip.deleteTrip(req.params.id)

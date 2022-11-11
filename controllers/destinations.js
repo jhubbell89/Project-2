@@ -21,6 +21,7 @@ function create(req, res){
 }
 
 function addToPlace(req, res) {
+  console.log(req.params)
   Trip.findById(req.params.id, function(err, trip) {
     trip.place.push(req.body.destinationId);
     trip.save(function(err) {
