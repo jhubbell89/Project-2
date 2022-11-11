@@ -43,12 +43,17 @@
         <% destination.forEach(function(a) { %>
           <tr>
             <td>
-              <form action="">
-                <i class="fa fa-edit" style="font-size:24px"></i>
+              <form action="/" class="" method="">
+                <button><i class="fa fa-edit" style="font-size:24px"></i></button>
               </form>
-              <form action="/destinations/<%= a.is %>?_method=DELETE" class="delete-form" method="POST">
+
+              
+              <div class="comment">
+              <form action="/destinations/<%= a._id %>?_method=DELETE" class="delete-form" method="POST">
                 <button class="btn"><i class="fa fa-trash"></i></button>
-            </form></td>
+              </form></td>
+
+
             <td><%= a.name %></td>
             <td><%= a.pass %></td>
             <td><%= a.location %></td>

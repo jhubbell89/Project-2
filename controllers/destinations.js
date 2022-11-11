@@ -6,6 +6,7 @@ module.exports = {
   new: newDestination,  
   create, 
   addToPlace,
+  delete: deleteDestination,
 }
 
 function newDestination(req, res) {
@@ -28,4 +29,12 @@ function addToPlace(req, res) {
       res.redirect(`/trips/${trip._id}`);
     })
   })
+}
+
+function deleteDestination(req, res) {
+  Destination.findOneAndDelete(
+    {_id: req.params.id, userRecommending: req.user._id}, function(err) {
+      res.rediret('/detinations/index')
+    }
+  )
 }
