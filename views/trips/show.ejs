@@ -40,14 +40,36 @@
 <%= trip.return %>
 <br>
 <br>
-
-
 <form id="addToPlace" action="/trips/<%= trip._id %>/destinations" method="POST">
   <select name="destinationId">
     <%- destinations.map(d => `<option value="${d._id}">${d.name}</option>`).join('') %>
   </select>
   <button type="submit">Add to Destinations</button>
 </form>
+
+<table>
+  <thead>
+    <tr>
+        <th>name</th>
+        <th></th>
+        <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% destinations.forEach(function(c) { %>
+      <tr>
+        <td><%= c.name %></td>
+        <td><%= c.pass %></td>
+        <td><%= c.location %></td>
+        <td><%= c.gps %></td>
+      </tr>
+      <% }); %>
+      <tr>
+        <td colspan="4"></td>
+      </tr>
+  </tbody>
+</table>
+
 
 <br>
 <br>
@@ -92,7 +114,7 @@
           </tr>
           <% }); %>
           <tr>
-            <td colspan="4"></td>
+            <td colspan="3"></td>
           </tr>
       </tbody>
     </table>
