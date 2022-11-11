@@ -12,6 +12,8 @@ var destinationSchema = new Schema({
         },
         location: String,
         gps: String,
+        user: {type: Schema.Types.ObjectId, ref: 'User'},
+        userName: String,
     }, {
         timestamps: true
     }

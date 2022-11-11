@@ -7,6 +7,8 @@ module.exports = {
   create, 
   addToPlace,
   delete: deleteDestination,
+  edit,
+  update,
 }
 
 function newDestination(req, res) {
@@ -34,7 +36,27 @@ function addToPlace(req, res) {
 function deleteDestination(req, res) {
   Destination.findOneAndDelete(
     {_id: req.params.id, userRecommending: req.user._id}, function(err) {
-      res.rediret('/detinations/index')
+      console.log('test deletedestination')
+      res.redirect('/destinations/index')
+    }
+  )
+}
+
+function edit(req, res) {
+  Destination.findOne({_id: req.params.id, userRecommending: req.user._id}, function(err, destination) {
+    if (err || !destination) return res.redirect('/destinations/index');
+    res.render('destinations/edit', {destination})
+  })
+}
+
+function update(req, res) {
+  Destination.findOneAndUpdate(
+    {_id: req.params.id, userRecommending: req.user._id},
+    req.body,
+    {new: true},
+    function(err, destination) {
+      if (err || !destination) return res.redirect('/destinations/edit');
+      res.redirect('/destinations/index')
     }
   )
 }

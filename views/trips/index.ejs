@@ -9,14 +9,18 @@
 
 <% if (trips.length) { %>
     <% trips.forEach(function(t) {%> 
-        <%= t.name %> 
-        <br>
-        <%= t.person %>
-        <br>
-        <a href="/trips/<%= t._id %> ">Details</a>
-        <br>
-        <br>
-    <% }); %> 
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <%= t.name %> 
+                <br>
+                <%= t.person %>
+                <br>
+                <a href="/trips/<%= t._id %> ">Details</a>
+            </div>
+        </div>
+    </div>
+<% }); %> 
 <% } else { %>
     <h2>No adventures await you... <br> yet!</h2>
 <% } %> 

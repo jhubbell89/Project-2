@@ -1,5 +1,5 @@
 <%- include('../partials/header')  %> 
-<title>Trip Planner Home</title>
+<title>Trip <%= trip.name %> </title>
 
 <body>
 <%- include('../partials/navbar')  %>
@@ -30,7 +30,15 @@
   <br>
   <textarea name="note" id="note" cols="25" rows="15"></textarea>
 </form>
+<form id="addToPlace" action="/trips/<%= trip._id %>/destinations" method="POST">
+  <select name="destinationId">
+    <%- destinations.map(d => `<option value="${d._id}">${d.name}</option>`).join('') %>
+  </select>
+  <button type="submit">Add to Destinations</button>
+</form>
 <br>
+<button type="button" class="collapsible">Details</button>
+<div class="content">
 <%= trip.name %> 
 <br>
 <%= trip.person %>
@@ -40,20 +48,18 @@
 <%= trip.return %>
 <br>
 <br>
-<form id="addToPlace" action="/trips/<%= trip._id %>/destinations" method="POST">
-  <select name="destinationId">
-    <%- destinations.map(d => `<option value="${d._id}">${d.name}</option>`).join('') %>
-  </select>
-  <button type="submit">Add to Destinations</button>
-</form>
-
+<button type="button" class="collapsible">Destinations</button>
+<div class="content">
 <%- trip.place.map(c => 
       `<li>${c.name}<br> 
-            ${c.pass}<br>
-            ${c.location}<br>
-            ${c.gps}<br>
+        ${c.pass}<br>
+        ${c.location}<br>
+        ${c.gps}<br>
         </li><br>`
-    ).join('') %>
+        ).join('') %>
+</div>
+<button type="button" class="collapsible">Notes</button>
+<div class="content">
 <% if (trip.notes.length) { %>
     <table>
       <thead>
@@ -74,9 +80,10 @@
     </table>
   <% } else { %>
     <h4>No Notes Added Yet</h4>
-  <% } %> 
-<br>
-<br>
+<% } %>
+</div>
+<button type="button" class="collapsible">Gear</button>
+<div class="content">
 <% if (trip.gear.length) { %>
     <table>
       <thead>
@@ -102,5 +109,22 @@
   <% } else { %>
     <h4>No Gear Added Yet</h4>
   <% } %> 
+</div>
+</div>
+<script>
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+</script>
 </body>
 </html>

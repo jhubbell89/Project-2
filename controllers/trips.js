@@ -1,3 +1,4 @@
+
 const Trip = require('../models/trip');
 const Destination = require('../models/destination');
 
