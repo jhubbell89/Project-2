@@ -47,28 +47,13 @@
   <button type="submit">Add to Destinations</button>
 </form>
 
-<table>
-  <thead>
-    <tr>
-        <th>name</th>
-        <th></th>
-        <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% destinations.forEach(function(c) { %>
-      <tr>
-        <td><%= c.name %></td>
-        <td><%= c.pass %></td>
-        <td><%= c.location %></td>
-        <td><%= c.gps %></td>
-      </tr>
-      <% }); %>
-      <tr>
-        <td colspan="4"></td>
-      </tr>
-  </tbody>
-</table>
+<%- trip.place.map(c => 
+      `<li>${c.name}<br> 
+            ${c.pass}<br>
+            ${c.location}<br>
+            ${c.gps}<br>
+        </li><br>`
+    ).join('') %>
 
 
 <br>

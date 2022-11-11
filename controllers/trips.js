@@ -18,20 +18,6 @@ function index(req, res) {
     })
 }
 
-function show(req, res) {
-    Trip.findById(req.params.id)
-    .populate('place').exec(function(err, trip) {
-        Destination.find({_id: {$nin: trip.place}})
-            .exec(function(err, destinations) {
-                res.render('trips/show', { title: 'Trip Detail', trip, destinations });
-            });
-    });
-  }
-
-function newTrip(req, res) {
-    res.render('trips/new');
-}
-
 function create(req, res) {
     const trip = new Trip(req.body);
     trip.save(function(err) {
@@ -40,7 +26,30 @@ function create(req, res) {
     });
 }
 
+function newTrip(req, res) {
+    res.render('trips/new');
+}
 
+function show(req, res) {
+    Trip.findById(req.params.id)
+    .populate('place').exec(function(err, trip) {
+        Destination.find({_id: {$nin: trip.place}})
+            .exec(function(err, destinations) {
+                res.render('trips/show', { title: 'Trip Detail', trip, destinations });
+            });
+    });
+}
+
+// function update(req, res) {
+//     Skill.update(req.params.id, req.body);
+//     res.redirect('/skills');
+// }
+  
+// function edit(req, res) {
+//     res.render('skills/edit', {
+//       skill: Skill.getOne(req.params.id)
+//     });
+// }
 
 // function deleteTrip(req, res) {
 //     Trip.deleteTrip(req.params.id)
