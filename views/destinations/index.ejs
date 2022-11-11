@@ -32,6 +32,7 @@
     <table>
       <thead>
         <tr>
+            <th></th>
             <th>Name:</th>
             <th>Pass Required:</th>
             <th>Location:</th>
@@ -41,6 +42,13 @@
       <tbody>
         <% destination.forEach(function(a) { %>
           <tr>
+            <td>
+              <form action="">
+                <i class="fa fa-edit" style="font-size:24px"></i>
+              </form>
+              <form action="/destinations/<%= a.is %>?_method=DELETE" class="delete-form" method="POST">
+                <button class="btn"><i class="fa fa-trash"></i></button>
+            </form></td>
             <td><%= a.name %></td>
             <td><%= a.pass %></td>
             <td><%= a.location %></td>
@@ -59,5 +67,3 @@
 
 <br>
 
-</body>
-</html>
