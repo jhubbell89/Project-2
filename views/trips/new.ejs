@@ -1,29 +1,45 @@
 <%- include('../partials/header')  %> 
-
 <body>
-  <%- include('../partials/navbar')  %> 
-  
+<%- include('../partials/navbar')  %> 
   <div class="info-box">
-    <div class="div1">
-      <label for="name">Trip Name:</label><br>
-      <label for="person">People Going:</label><br>
-      <label for="leave">Leave Date</label><br>
-      <label for="return">Return Date:</label><br>
+    <form action="/trips/" method="POST">
+    <div class="row">
+      <div class="col-25">
+        <label for="name">Trip Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="name" name="name" placeholder="Your trip name..">
+      </div>
     </div>
-    <div class="div2">
-      <form action="/trips/" method="POST">
-        <input type="text" name="name">
-        <br>
-        <input type="text" name="person" required>
-        <br>
+    <div class="row">
+      <div class="col-25">
+        <label for="people">People Going</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="person" name="person" placeholder="People Going..">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="leave">Leave Date</label>
+      </div>
+      <div class="col-75">
         <input type="date" name="leave">
-        <br>
-        <input type="date" name="return">
-        <br>
-        <input type="submit" value="Start Planning">
-      </form>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="return">Return Date</label>
+      </div>
+      <div class="col-75">
+        <input type="date" name="return">
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <input type="submit" value="Start Planning">
+    </div>
+    </form>
   </div>
-
   </body>
 </html>
