@@ -30,6 +30,7 @@ a {
 .topnav {
   background-color: #333;
   overflow: hidden;
+  border-radius: 10px;
 }
 
 /* Style the links inside the navigation bar */
@@ -137,7 +138,17 @@ color: red;
 }
 
 .info-box {
-  background-color: #777;
+  background-color: #333;
   margin: 25px;
   padding: 5px;
+  border-radius: 10px;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
+
+.div1 { grid-area: 1 / 1 / 2 / 2; }
+.div2 { grid-area: 1 / 2 / 2 / 3; }

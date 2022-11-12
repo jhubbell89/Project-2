@@ -36,7 +36,6 @@ function addToPlace(req, res) {
 function deleteDestination(req, res) {
   Destination.findOneAndDelete(
     {_id: req.params.id, userRecommending: req.user._id}, function(err) {
-      console.log('test deletedestination')
       res.redirect('/destinations/index')
     }
   )
