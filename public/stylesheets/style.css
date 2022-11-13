@@ -24,7 +24,11 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: brown;
+}
+
+a:hover {
+  color: blue;
 }
 
 * {

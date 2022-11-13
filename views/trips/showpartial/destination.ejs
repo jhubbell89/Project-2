@@ -1,0 +1,6 @@
+<form id="addToPlace" action="/trips/<%= trip._id %>/destinations" method="POST">
+    <select name="destinationId">
+      <%- destinations.map(d => `<option value="${d._id}">${d.name}</option>`).join('') %>
+    </select>
+    <input type="submit" value="Add To Destination">
+</form>

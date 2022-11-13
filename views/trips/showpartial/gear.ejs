@@ -1,0 +1,38 @@
+<div class="info-box">
+    <form action="/trips/<%= trip._id %>/gears" method="POST">
+      <div class="row">
+        <div class="col-25">
+          <label for="item">Gear your bringing: </label>
+        </div>
+        <div class="col-75">
+          <input type="text" name="item" placeholder="e.g. shoes" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="qty">Quantity:</label>
+        </div>
+        <div class="col-75">
+          <input type="number" name="qty" min="1" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="condition">Condition:</label>
+        </div>
+        <div class="col-75">
+          <select name="condition" id="condition" required>
+            <option value="new">New</option>
+            <option value="great">Great</option>
+            <option value="OK">OK</option>
+            <option value="bad">Bad</option>
+            <option value="unusable">Unusable</option>
+          </select>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <input type="submit" value="Add Gear">
+      </div>
+    </form>
+</div>

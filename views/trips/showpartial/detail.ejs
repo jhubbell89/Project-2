@@ -1,0 +1,77 @@
+<div class="info-box">
+    </div>
+    <div class="infobox">
+    <button type="button" class="collapsible">Details</button>
+    <div class="content">
+    <%= trip.name %> 
+    <br>
+    <%= trip.person %>
+    <br>
+    <%= trip.leave %>
+    <br>
+    <%= trip.return %>
+    <br>
+    <br>
+    <button type="button" class="collapsible">Destinations</button>
+    <div class="content">
+    <%- trip.place.map(c => 
+          `<li>${c.name}<br> 
+            ${c.pass}<br>
+            ${c.location}<br>
+            ${c.gps}<br>
+            </li><br>`
+            ).join('') %>
+    </div>
+    <button type="button" class="collapsible">Notes</button>
+    <div class="content">
+    <% if (trip.notes.length) { %>
+        <table>
+          <thead>
+            <tr>
+                <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% trip.notes.forEach(function(a) { %>
+              <tr>
+                <td><%= a.note %></td>
+              </tr>
+              <% }); %>
+              <tr>
+                <td colspan="1"></td>
+              </tr>
+          </tbody>
+        </table>
+      <% } else { %>
+        <h4>No Notes Added Yet</h4>
+    <% } %>
+    </div>
+    <button type="button" class="collapsible">Gear</button>
+    <div class="content">
+    <% if (trip.gear.length) { %>
+        <table>
+          <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Condition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% trip.gear.forEach(function(b) { %>
+              <tr>
+                <td><%= b.item %></td>
+                <td><%= b.qty %></td>
+                <td><%= b.condition %></td>
+              </tr>
+              <% }); %>
+              <tr>
+                <td colspan="3"></td>
+              </tr>
+          </tbody>
+        </table>
+      <% } else { %>
+        <h4>No Gear Added Yet</h4>
+      <% } %> 
+    </div>
+ </div>
