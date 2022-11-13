@@ -36,9 +36,14 @@
     border-bottom: 5px green solid;
 }
 
-.card-bottom-row {
-    min-height: 40px;
-    padding: 10px 0;
+.card-bottom-row-left {
+    float: left;
+    width: 20%;
+}
+
+.card-bottom-row-left {
+    float: left;
+    
 }
 
 /* Responsive columns */

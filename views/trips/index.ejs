@@ -11,13 +11,24 @@
                     <img src="https://img.freepik.com/premium-vector/mountain-with-pine-trees-landscape-black-white-background-hand-drawn-rocky-peaks-sketch-style-vector-illustration_531380-77.jpg?w=2000" 
                     alt="trees with mountian outline" width="200px">
                 </div>
-                <div class="card-bottom-row">
-                <%= t.name %> 
-                <br>
-                <%= t.person %>
-                <br>
-                <a href="/trips/<%= t._id %> ">Details</a>
+                    <div class="row">
+                        <div class="col-25">
+                        <form action="<%=  %>?_method=DELETE" class="delete-form" method="POST">
+                            <button class="submit"><i class="fa fa-trash"></i></button>
+                        </form>
+                        </div>
+                        
+                        <div class="col-75">
+                            <%= t.name %> 
+                            <br>
+                            <%= t.person %>
+                            <br>
+                            <a href="/trips/<%= t._id %> ">Details</a>
+                        </div>
+                    </div>
+                    
                 </div>
+            </div>
             </div>
         </div>
     </div>
