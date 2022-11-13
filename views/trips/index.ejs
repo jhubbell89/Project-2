@@ -4,24 +4,28 @@
 <%- include('../partials/navbar')  %>
 <% if (trips.length) { %>
     <% trips.forEach(function(t) {%> 
-    <div class="row">
-        <div class="column">
+    <div class="card-row">
+        <div class="card-column">
             <div class="card">
                 <div class="card-top-row">
+                    <img src="https://img.freepik.com/premium-vector/mountain-with-pine-trees-landscape-black-white-background-hand-drawn-rocky-peaks-sketch-style-vector-illustration_531380-77.jpg?w=2000" 
+                    alt="trees with mountian outline" width="200px">
                 </div>
                 <div class="card-bottom-row">
                 <%= t.name %> 
                 <br>
                 <%= t.person %>
-                </div>
+                <br>
                 <a href="/trips/<%= t._id %> ">Details</a>
+                </div>
             </div>
         </div>
     </div>
+
 <% }); %> 
 <% } else { %>
     <h2>No adventures await you... <br> yet!</h2>
 <% } %> 
-
+<%- include('../partials/autoscroll')  %> 
 </body>
 </html>
