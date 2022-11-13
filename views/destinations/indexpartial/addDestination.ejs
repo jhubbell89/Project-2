@@ -1,23 +1,45 @@
 <div class="info-box">
-<form action="/destinations/index" method="post">
-    <label for="name">Destination:</label>
-    <input type="text" name="name" placeholder="e.g. Mt. SI" required>
+  <form action="/destinations/index" method="post">
+    <div class="row">
+      <div class="col-25">
+        <label for="name">Destination:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" name="name" placeholder="e.g. Mt. SI" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="pass">Pass Required</label>
+      </div>
+      <div class="col-75">
+        <select name="pass" id="pass" required>
+          <option value="Northwest Forest Pass">Northwest Forest Pass</option>
+          <option value="National Forest Pass">National Forest Pass</option>
+          <option value="Oregon Pacific Coast Pass">Oregon Pacific Coast Pass</option>
+          <option value="America the Beautiful National Parks Pass">America the Beautiful National Parks Pass</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="location">Location:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" name="location" placeholder="e.g. NorthBend, WA">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="gps">GPS Coordinates:</label>
+      </div>
+      <div class="col-75">
+        <input type="text" name="gps">
+      </div>
+    </div>
     <br>
-    <label for="pass">Pass Required</label>
-    <select name="pass" id="pass" required>
-      <option value="Northwest Forest Pass">Northwest Forest Pass</option>
-      <option value="National Forest Pass">National Forest Pass</option>
-      <option value="Oregon Pacific Coast Pass">Oregon Pacific Coast Pass</option>
-      <option value="America the Beautiful National Parks Pass">America the Beautiful National Parks Pass</option>
-    </select>
-    <br>
-    <label for="location">Location:</label>
-    <input type="text" name="location" placeholder="e.g. NorthBend, WA">
-    <br>
-    <label for="gps">GPS Coordinates:</label>
-    <input type="text" name="gps">
-    <br>
-    <br>
-    <input type="submit" value="Add Destination">
-</form>
+    <div class="row">
+      <input type="submit" value="Add Destination">
+    </div>
+  </form>
 </div>

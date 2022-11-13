@@ -1,6 +1,6 @@
 <div class="info-box">
 <% if(destination.length) { %> 
-    <table>
+    <table class="thead">
       <thead>
         <tr>
             <th></th>
@@ -11,7 +11,7 @@
             <th>GPS Coordinates:</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="tbody">
         <% destination.forEach(function(a) { %>
           <tr>
             <td>

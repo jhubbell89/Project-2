@@ -40,3 +40,7 @@ label {
   display: inline-block;
 }
 
+.thead {
+  color: #ccc;
+  font-weight: bold;
+}
