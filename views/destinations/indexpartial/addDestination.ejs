@@ -1,10 +1,7 @@
-<%- include('../partials/header')  %> 
-<body>
-<%- include('../partials/navbar')  %> 
 <div class="info-box">
-<form action="/destinations/<%= destination.id %>/?_method=PUT" method="post">
+<form action="/destinations/index" method="post">
     <label for="name">Destination:</label>
-    <input type="text" name="name" value="<%= destination.name %> " required>
+    <input type="text" name="name" placeholder="e.g. Mt. SI" required>
     <br>
     <label for="pass">Pass Required</label>
     <select name="pass" id="pass" required>
@@ -15,14 +12,12 @@
     </select>
     <br>
     <label for="location">Location:</label>
-    <input type="text" name="location" value="<%= destination.location %> ">
+    <input type="text" name="location" placeholder="e.g. NorthBend, WA">
     <br>
     <label for="gps">GPS Coordinates:</label>
-    <input type="text" name="gps" value="<%= destination.gps %> ">
+    <input type="text" name="gps">
     <br>
     <br>
-    <input type="submit" value="Update Destination">
+    <input type="submit" value="Add Destination">
 </form>
 </div>
-<%- include('../partials/autoscroll')  %>
-<%- include('../partials/footer') %>

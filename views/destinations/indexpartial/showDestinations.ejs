@@ -1,0 +1,40 @@
+<div class="info-box">
+<% if(destination.length) { %> 
+    <table>
+      <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>Name:</th>
+            <th>Pass Required:</th>
+            <th>Location:</th>
+            <th>GPS Coordinates:</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% destination.forEach(function(a) { %>
+          <tr>
+            <td>
+              <a href="/destinations/<%= a.id %>/edit" id="edit-link"><i class="fa fa-edit" style="font-size:24px"></i></a>
+            </td>  
+            <td>  
+              <div class="comment">
+              <form action="/destinations/<%= a.id %>?_method=DELETE" class="delete-form" method="POST">
+                <button class="submit"><i class="fa fa-trash"></i></button>
+              </form>
+            </td>
+            <td><%= a.name %></td>
+            <td><%= a.pass %></td>
+            <td><%= a.location %></td>
+            <td><%= a.gps %></td>
+          </tr>
+          <% }); %> 
+          <tr>
+            <td colspan="6"></td>
+          </tr>
+        </tbody>
+      </table>
+    <% } else { %>
+  <h2>You don't have any Destinations yet.</h2>
+<% } %> 
+</div>

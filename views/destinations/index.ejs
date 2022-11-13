@@ -1,67 +1,7 @@
 <%- include('../partials/header')  %> 
 <body>
 <%- include('../partials/navbar')  %> 
-<p>Welcome to destinations</p>   
-<form action="/destinations/index" method="post">
-<label for="name">Destination:</label>
-<input type="text" name="name" placeholder="e.g. Mt. SI" required>
-<br>
-<label for="pass">Pass Required</label>
-<select name="pass" id="pass" required>
-  <option value="Northwest Forest Pass">Northwest Forest Pass</option>
-  <option value="National Forest Pass">National Forest Pass</option>
-  <option value="Oregon Pacific Coast Pass">Oregon Pacific Coast Pass</option>
-  <option value="America the Beautiful National Parks Pass">America the Beautiful National Parks Pass</option>
-</select>
-<br>
-<label for="location">Location:</label>
-<input type="text" name="location" placeholder="e.g. NorthBend, WA">
-<br>
-<label for="gps">GPS Coordinates:</label>
-<input type="text" name="gps">
-<br>
-<br>
-<input type="submit" value="Add Destination">
-</form>
-
-<br>
-<% if(destination.length) { %> 
-    <table>
-      <thead>
-        <tr>
-            <th></th>
-            <th></th>
-            <th>Name:</th>
-            <th>Pass Required:</th>
-            <th>Location:</th>
-            <th>GPS Coordinates:</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% destination.forEach(function(a) { %>
-          <tr>
-            <td>
-              <a href="/destinations/<%= a.id %>/edit" id="edit-link"><i class="fa fa-edit" style="font-size:24px"></i></a>
-            </td>  
-            <td>  
-              <div class="comment">
-              <form action="/destinations/<%= a.id %>?_method=DELETE" class="delete-form" method="POST">
-                <button class="submit"><i class="fa fa-trash"></i></button>
-              </form>
-            </td>
-            <td><%= a.name %></td>
-            <td><%= a.pass %></td>
-            <td><%= a.location %></td>
-            <td><%= a.gps %></td>
-          </tr>
-          <% }); %> 
-          <tr>
-            <td colspan="6"></td>
-          </tr>
-        </tbody>
-      </table>
-    <% } else { %>
-  <h2>You don't have any Destinations yet.</h2>
-<% } %> 
-<br>
+<%- include('indexpartial/addDestination') %> 
+<%- include('indexpartial/showDestinations') %> 
 <%- include('../partials/autoscroll')  %>
+<%- include('../partials/footer') %> 
