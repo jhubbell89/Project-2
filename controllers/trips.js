@@ -7,7 +7,7 @@ module.exports = {
     create,
     index,
     show,
-    // delete: deleteTrip,
+    delete: deleteTrip,
     // edit,
     // update,
 };
@@ -52,7 +52,10 @@ function show(req, res) {
 //     });
 // }
 
-// function deleteTrip(req, res) {
-//     Trip.deleteTrip(req.params.id)
-//     res.redirect('/trips')
-// }
+function deleteTrip(req, res) {
+    Trip.findOneAndDelete(
+        {_id: req.params.id, userRecommending: req.user._id}, function(err) {
+            res.redirect('/trips/index')
+        }
+    )
+}
