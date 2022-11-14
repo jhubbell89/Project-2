@@ -44,7 +44,7 @@ function deleteDestination(req, res) {
 function edit(req, res) {
   Destination.findOne({_id: req.params.id, userRecommending: req.user._id}, function(err, destination) {
     if (err || !destination) return res.redirect('/destinations/index');
-    res.render('/destinations/edit', {destination})
+    res.render('destinations/edit', {destination})
   })
 }
 
