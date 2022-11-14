@@ -8,8 +8,6 @@ module.exports = {
     index,
     show,
     delete: deleteTrip,
-    // edit,
-    // update,
 };
 
 function index(req, res) {
@@ -40,17 +38,6 @@ function show(req, res) {
             });
     });
 }
-
-// function update(req, res) {
-//     Skill.update(req.params.id, req.body);
-//     res.redirect('/skills');
-// }
-  
-// function edit(req, res) {
-//     res.render('skills/edit', {
-//       skill: Skill.getOne(req.params.id)
-//     });
-// }
 
 function deleteTrip(req, res) {
     Trip.findOneAndDelete(

@@ -12,7 +12,7 @@ The planner I built allows you to create a plan for your trip helping the user t
 ![pic5](pic5.png)
 
 ### Technologies Used
-HTML, CSS, Java Script, Google OAuth, MongooseDB, Node.js, Ejs.
+HTML, CSS, Java Script, Google OAuth, MongooseDB, Node.js, Ejs, picsart editer.
 
 ### Getting Started
 Trello: https://trello.com/b/nRyc98tl/project-2
